@@ -16,7 +16,6 @@ with open(r'days\7\input.txt', 'r') as f:
         line = line.strip()
         groups = re.split(r'contain |, ', line)
         groups = [re.sub(r'(\s)bag?s?.', '', i) for i in groups]
-        # print(groups)
         outer = groups[0]
         if outer not in bags:
                 bags[outer] = {}
@@ -26,8 +25,6 @@ with open(r'days\7\input.txt', 'r') as f:
         for i in groups[1:]:
             amount, bag, _ = re.split(r' (\D+)', i)
             bags[outer][bag] = amount
-    # for key, value in bags.items():
-    #     print(key, value)
     total = 0
     for key in bags:
         if find_bag(key, bags):
